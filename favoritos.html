@@ -14,32 +14,50 @@
         <div>
             <input type="text" name="search" id="search">
         </div>
-        
-        <div class="row">
-            <table class="col s6 m6 l6 striped">
-                <tr>
-                    <td>Link1 - <a href="http://google.com"> google.com</a></td>
-                </tr>
-            </table>
 
-            <table class="col s6 m6 l6 striped">
-                <tr>
-                    <td>Link2 - <a href="http://google.com"> google.com</a></td>
-                </tr>
-                <tr>
-                    <td>Link3 - <a href="http://google.com"> google.com</a></td>
-                </tr>
-            </table>
-        </div>
+        <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3"><a href="#internTools">Ferramentas internas</a></li>
+                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+              </ul>
+            </div>
+            <div id="internTools" class="col s12">
+                <div class="row">
+                    <table class="col s6 m6 l6 striped">
+                        <tr>
+                            <td>Link1 - <a href="http://google.com"> google.com</a></td>
+                        </tr>
+                    </table>
+        
+                    <table class="col s6 m6 l6 striped">
+                        <tr>
+                            <td>Link2 - <a href="http://google.com"> google.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>Link3 - <a href="http://google.com"> google.com</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="test2" class="col s12">Test 2</div>
+            <div id="test3" class="col s12">Test 3</div>
+            <div id="test4" class="col s12">Test 4</div>
+          </div>
     </div>
 
     <div id="div1"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="quick-search.js"></script>
     <script>
-        $('#search').quicksearch('table tbody tr');
+        $(function(){
+            $('.tabs').tabs();
+            $('#search').quicksearch('table tbody tr');
+        })
     </script>
  </body>
  </html>
