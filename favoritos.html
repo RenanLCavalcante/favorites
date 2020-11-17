@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Favoritos Renan</title>
+ </head>
+ <body>
+    <div class="container">
+        <div>
+            <h2>Favoritos</h2>
+        </div>
+        <div>
+            <input type="text" name="search" id="search">
+        </div>
+        
+        <div class="row">
+            <table class="col s6 m6 l6 striped">
+                <tr>
+                    <td>Link1 - <a href="http://google.com"> google.com</a></td>
+                </tr>
+            </table>
+
+            <table class="col s6 m6 l6 striped">
+                <tr>
+                    <td>Link2 - <a href="http://google.com"> google.com</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="div1"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="quick-search.js"></script>
+    <script>
+        $('#search').quicksearch('table tbody tr');
+    </script>
+ </body>
+ </html>
