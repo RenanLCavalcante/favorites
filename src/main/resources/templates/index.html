@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "icon" href ="skull.jpg" type = "image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos Renan</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h2>Favoritos</h2>
+    </div>
+    <a href="/favorites/create">Create new favorite</a>
+    <div>
+        <input type="text" name="search" id="search">
+    </div>
+
+    <div class="row">
+        <div id="internTools" class="col s12">
+            <div class="row">
+                <table class="col s12 m12 l12 striped">
+                    <th:block th:each="favorite : ${listOfFavorites}">
+                        <tr>
+                            <td class="col s10 m10 l10 "><a th:href="@{${favorite.link}}" target="_blank"> <span th:text="${favorite.name}"></span></a> <small th:text="${favorite.description}"></small></td>
+                            <td>
+                                <form action="/favorites/delete" method="post">
+                                    <input type="text" th:value="${favorite.id}" name="id" id="id" th:hidden="hidden" />
+                                    <input type="submit" id="delete" value="Excluir">
+                                </form>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="quick-search.js"></script>
+<script>
+        $(function(){
+            $('.tabs').tabs();
+            $('#search').quicksearch('table tbody tr');
+        })
+    </script>
+</body>
+</html>

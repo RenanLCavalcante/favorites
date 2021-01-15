@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "icon" href ="skull.jpg" type = "image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos Renan</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h2>Create</h2>
+    </div>
+
+    <form action="/favorites" method="post">
+        <div class="row">
+            <div class="col m12">
+                <div class="input-field">
+                    <input type="text" name="name" id="name" th:required="required"/>
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="col m12">
+                <div class="input-field">
+                    <input type="text" name="description" id="description"/>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+            <div class="col m12">
+                <div class="input-field">
+                    <input type="text" name="link" id="link" th:required="required" />
+                    <label for="link">Link</label>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" class="btn indigo darken-4" id="btn-enviar-infos" value="Create"/>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

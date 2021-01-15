@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+    mongo-express:
+        image: mongo-express
+        ports:
+            - 8081:8081
+        environment:
+            ME_CONFIG_MONGODB_PORT: 27777
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: MF2021!
+        links:
+            - mongo
+
+    mongo:
+        image: mongo
+        command: mongod --port 27777
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: MF2021!
+        ports:
+            - "27777:27777"
+        volumes:
+            - ./mongodb:/data/db
