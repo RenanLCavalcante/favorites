@@ -14,7 +14,7 @@
     </div>
     <a href="/favorites/create">Create new favorite</a>
     <div>
-        <input type="text" name="search" id="search">
+        <input type="text" name="search" id="search" onClick="this.select();">
     </div>
 
     <div class="row">
@@ -23,7 +23,9 @@
                 <table class="col s12 m12 l12 striped">
                     <th:block th:each="favorite : ${listOfFavorites}">
                         <tr>
-                            <td class="col s10 m10 l10 "><a th:href="@{${favorite.link}}" target="_blank"> <span th:text="${favorite.name}"></span></a> <small th:text="${favorite.description}"></small></td>
+                            <td class="col s10 m10 l10 ">
+                                <a th:href="@{${favorite.link}}" target="_blank"> <span th:text="${favorite.name}"></span></a> <small th:text="${favorite.description}"></small>
+                            </td>
                             <td>
                                 <form action="/favorites/delete" method="post">
                                     <input type="text" th:value="${favorite.id}" name="id" id="id" th:hidden="hidden" />

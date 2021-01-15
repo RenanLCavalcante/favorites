@@ -15,15 +15,15 @@ class FavoriteController(
     fun create(favorite: Favorite): ModelAndView {
         favoriteRepository.save(favorite)
         val modelAndView = ModelAndView("/index")
-        modelAndView.addObject("listOfFavorites", favoriteRepository.findAll())
+        modelAndView.addObject("listOfFavorites", getAllFavorites())
         return modelAndView
     }
 
     @PostMapping("/delete")
     fun delete(id: String): ModelAndView {
         favoriteRepository.deleteById(id);
-        val modelAndView = ModelAndView("/index")
-        modelAndView.addObject("listOfFavorites", favoriteRepository.findAll())
+        val modelAndView = ModelAndView("redirect:/favorites")
+        modelAndView.addObject("listOfFavorites", getAllFavorites())
         return modelAndView
     }
 
@@ -35,7 +35,11 @@ class FavoriteController(
     @GetMapping
     fun getAll(): ModelAndView {
         val modelAndView = ModelAndView("/index")
-        modelAndView.addObject("listOfFavorites", favoriteRepository.findAll())
+        modelAndView.addObject("listOfFavorites", getAllFavorites())
         return modelAndView
+    }
+
+    private fun getAllFavorites(): List<Favorite> {
+        return favoriteRepository.findAllByOrderByName()
     }
 }
