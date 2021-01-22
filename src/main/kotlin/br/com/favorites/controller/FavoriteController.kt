@@ -14,7 +14,7 @@ class FavoriteController(
     @PostMapping
     fun create(favorite: Favorite): ModelAndView {
         favoriteRepository.save(favorite)
-        val modelAndView = ModelAndView("/index")
+        val modelAndView = ModelAndView("index")
         modelAndView.addObject("listOfFavorites", getAllFavorites())
         return modelAndView
     }
@@ -29,12 +29,12 @@ class FavoriteController(
 
     @GetMapping("/create")
     fun formCreate(): ModelAndView {
-        return ModelAndView("/create")
+        return ModelAndView("create")
     }
 
     @GetMapping
     fun getAll(): ModelAndView {
-        val modelAndView = ModelAndView("/index")
+        val modelAndView = ModelAndView("index")
         modelAndView.addObject("listOfFavorites", getAllFavorites())
         return modelAndView
     }

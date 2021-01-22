@@ -11,6 +11,8 @@ services:
             ME_CONFIG_MONGODB_ADMINPASSWORD: MF2021!
         links:
             - mongo
+        networks:
+            - default            
 
     mongo:
         image: mongo
@@ -22,3 +24,21 @@ services:
             - "27777:27777"
         volumes:
             - ./mongodb:/data/db
+        networks:
+            - default
+
+    favorite:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        ports: 
+            - 8099:8099
+        container_name: favorite-container
+        depends_on: 
+            - mongo
+        networks: 
+            - default        
+
+networks:
+    default:
+        driver: bridge
