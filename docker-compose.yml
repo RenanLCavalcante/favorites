@@ -12,7 +12,7 @@ services:
         links:
             - mongo
         networks:
-            - default            
+            - default
 
     mongo:
         image: mongo
@@ -31,13 +31,13 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
-        ports: 
+        ports:
             - 8099:8099
         container_name: favorite-container
-        depends_on: 
+        depends_on:
             - mongo
-        networks: 
-            - default        
+        networks:
+            - default
 
 networks:
     default:

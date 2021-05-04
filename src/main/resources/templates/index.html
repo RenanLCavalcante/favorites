@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel = "icon" href ="skull.jpg" type = "image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos Renan</title>
@@ -27,9 +27,14 @@
                                 <a th:href="@{${favorite.link}}" target="_blank"> <span th:text="${favorite.name}"></span></a> <small th:text="${favorite.description}"></small>
                             </td>
                             <td>
+                                <a th:href="@{/favorites/update/} + ${favorite.id}" class="waves-effect waves-light btn-small"><i class="material-icons">edit</i></a>
+                            </td>
+                            <td>
                                 <form action="/favorites/delete" method="post">
-                                    <input type="text" th:value="${favorite.id}" name="id" id="id" th:hidden="hidden" />
-                                    <input type="submit" id="delete" value="Excluir">
+                                    <input type="text" th:value="${favorite.id}" name="id" id="id" th:hidden="hidden"/>
+                                    <button class="red darken-4 btn waves-effect waves-light btn-small" type="submit" name="delete">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
